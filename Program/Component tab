@@ -1,0 +1,45 @@
+import React ,{useState} from 'react'
+
+function App() {
+  const[activeTab,setactiveTab]=useState("Home")
+  return (
+    <div style={Styles.Container}>
+      <h2>Tab Component</h2>
+      <div style={Styles.tabContainer}>
+      <button onClick={()=>setactiveTab("Home")}>Home</button>
+      <button onClick={()=>setactiveTab("About")}>About</button>
+      <button onClick={()=>setactiveTab("Contact")}>Contact</button>
+      </div>
+      <div style={Styles.contentBox}>
+        {activeTab==="Home"&&(
+          <p>This Is Home Page</p>
+          )}
+           {activeTab==="About"&&(
+          <p>React JS</p>
+          )}
+          {activeTab==="Contact"&&(
+          <p>email:reactjs@gmail.com</p>
+          )}
+          
+      </div>
+
+    </div>
+  )
+}
+const Styles={
+  Container:{
+  minHeight:"800vh",
+  background:"lightgrey"
+  },
+  tabContainer:{
+    padding:"20px"
+  },
+  contentBox:{
+    height:"100px",
+    width:"200px",
+    border:"1px solid",
+    borderRadius:"10px",
+    marginLeft:"220px"
+  }
+}
+export default App;
