@@ -1,0 +1,39 @@
+import React,{useEffect,useState} from 'react'
+
+function Greeting() {
+    const[greetings,setGreeting]=useState("");
+    useEffect(()=>{
+        let hours=new Date().getHours().toString().padStart(2,"0")
+        let minutes=new Date().getMinutes().toString().padStart(2,"0")
+        let seconds=new Date().getSeconds().toString().padStart(2,"0")
+        if(hours<12){
+            setGreeting(`Good Morning ${hours}:${minutes}:${seconds}`)
+        }
+        else if(hours>=12 && hours<=15){
+          setGreeting(`Good Afternoon ${hours}:${minutes}:${seconds}`)
+        }
+        else if(hours>=17 && hours<=18){
+          setGreeting(`Good Evening ${hours}:${minutes}:${seconds}`)
+        }
+        else{
+          setGreetings(`Good Night`)
+        }
+
+
+    })
+  return (
+    <div>
+      <div style={{
+        height:"150px",
+        width:"300px",
+        background:"Lightblue",
+        marginTop:"40px",
+        marginLeft:"300px",
+        borderTopLeftRadius:"20px",
+        borderBottomRightRadius:"20px",
+        paddingTop:"50px"
+        }}>{greetings}</div>
+    </div>
+  )
+}
+export default Greeting;
